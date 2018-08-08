@@ -58,11 +58,11 @@ if not WGET_LUA:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = '20180808.01'
+VERSION = '20180808.03'
 USER_AGENT = 'ArchiveTeam'
 TRACKER_ID = 'quizlet'
 TRACKER_HOST = 'tracker.archiveteam.org'
-CLIENT_ID = random.choice(['BNCkwdk2dm', 'YNmdHhD6H6', 'NEuXm4wg8x', 'vhvChbtN8e', 'zMXwfxGSkq', 'UedFGhuB2y', 'QTTg3wuA6D', '5wS6Dz7YZU', 'wtVC2USDp5', 'e5wkDx7nuk'])
+CLIENT_IDS = ['BNCkwdk2dm', 'YNmdHhD6H6', 'NEuXm4wg8x', 'vhvChbtN8e', 'zMXwfxGSkq', 'UedFGhuB2y', 'QTTg3wuA6D', '5wS6Dz7YZU', 'wtVC2USDp5', 'e5wkDx7nuk']
 
 
 ###########################################################################
@@ -197,10 +197,9 @@ class WgetArgs(object):
 
         if item_type == 'api':
             start, end = (int(i) for i in item_value.split('-'))
-            wget_args.extend(['--warc-header', 'quizlet-api-client_id: {}'.format(CLIENT_ID)])
             for id_ in range(start, end+1):
                 wget_args.extend(['--warc-header', 'quizlet-api-id: {}'.format(id_)])
-                wget_args.append('https://api.quizlet.com/2.0/sets/{}?client_id={}'.format(id_, CLIENT_ID))
+                wget_args.append('https://api.quizlet.com/2.0/sets/{}?client_id={}'.format(id_, random.choice(CLIENT_IDS)))
         else:
             raise Exception('Unknown item')
 
