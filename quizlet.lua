@@ -23,6 +23,7 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
     io.stdout:flush()
     if status_code == 429 then
       os.execute("sleep 300")
+      return wget.actions.ABORT
     else
       os.execute("sleep 1")
     end
@@ -31,7 +32,7 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
       io.stdout:write("\nI give up...\n")
       io.stdout:flush()
       tries = 0
-      return wget.actions.EXIT
+      return wget.actions.ABORT
     else
       return wget.actions.CONTINUE
     end
