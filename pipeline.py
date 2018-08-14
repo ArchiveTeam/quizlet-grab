@@ -62,7 +62,7 @@ VERSION = '20180811.03'
 USER_AGENT = 'ArchiveTeam'
 TRACKER_ID = 'quizlet'
 TRACKER_HOST = 'tracker.archiveteam.org'
-CLIENT_IDS = ['BNCkwdk2dm', 'YNmdHhD6H6', 'NEuXm4wg8x', 'vhvChbtN8e', 'zMXwfxGSkq', 'UedFGhuB2y', 'QTTg3wuA6D', '5wS6Dz7YZU', 'wtVC2USDp5', 'e5wkDx7nuk']
+CLIENT_IDS = ['kSnjDRmwSQ', 'n4t7jmfnsj', 'JdeCjjDMn7', 'vhFZ5EUsja', 'ZNVxMG78jy', 'x3j2dx7pXx', 'fbY9SZ8sSP', 'rrJfG7cCqw', 'VgHP857eG6']
 
 
 ###########################################################################
