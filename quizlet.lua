@@ -40,7 +40,7 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
 
   tries = 0
 
-  local sleep_time = 0.75
+  local sleep_time = 0.725
 
   if sleep_time > 0.001 then
     os.execute("sleep " .. sleep_time)
