@@ -58,7 +58,7 @@ if not WGET_LUA:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = '20180820.02'
+VERSION = '20180827.01'
 USER_AGENT = 'ArchiveTeam'
 TRACKER_ID = 'quizlet'
 TRACKER_HOST = 'tracker.archiveteam.org'
@@ -180,7 +180,8 @@ class WgetArgs(object):
             '--tries', 'inf',
             '--domains', 'quizlet.com',
             '--span-hosts',
-            '--waitretry', '30',
+            '--waitretry', '30'
+            '--header', 'Authorization: Bearer WAX5FNgyMRvskagTuKFEaj2j2zFdzaNCDmXPYNs2',
             '--warc-file', ItemInterpolation('%(item_dir)s/%(warc_file_base)s'),
             '--warc-header', 'operator: Archive Team',
             '--warc-header', 'quizlet-dld-script-version: ' + VERSION,
@@ -198,7 +199,7 @@ class WgetArgs(object):
             start, end = (int(i) for i in item_value.split('-'))
             for id_ in range(start, end+1):
                 wget_args.extend(['--warc-header', 'quizlet-api-id: {}'.format(id_)])
-                wget_args.append('https://api.quizlet.com/2.0/sets/{}?client_id=3zfHjxjZxz'.format(id_))
+                wget_args.append('https://api.quizlet.com/2.0/sets/{}'.format(id_))
         else:
             raise Exception('Unknown item')
 
