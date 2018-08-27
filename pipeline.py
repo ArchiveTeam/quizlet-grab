@@ -180,7 +180,7 @@ class WgetArgs(object):
             '--tries', 'inf',
             '--domains', 'quizlet.com',
             '--span-hosts',
-            '--waitretry', '30'
+            '--waitretry', '30',
             '--header', 'Authorization: Bearer WAX5FNgyMRvskagTuKFEaj2j2zFdzaNCDmXPYNs2',
             '--warc-file', ItemInterpolation('%(item_dir)s/%(warc_file_base)s'),
             '--warc-header', 'operator: Archive Team',
