@@ -22,7 +22,7 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
     io.stdout:write("Server returned "..http_stat.statcode.." ("..err.."). Sleeping.\n")
     io.stdout:flush()
     if status_code == 429 then
-      os.execute("sleep 300")
+      os.execute("sleep 3600")
       return wget.actions.ABORT
     else
       os.execute("sleep 1")
@@ -40,7 +40,7 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
 
   tries = 0
 
-  local sleep_time = 0
+  local sleep_time = 2
 
   if sleep_time > 0.001 then
     os.execute("sleep " .. sleep_time)
